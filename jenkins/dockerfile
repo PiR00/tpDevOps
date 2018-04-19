@@ -1,0 +1,14 @@
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y curl nginx
+
+RUN apk add --no-cache git
+RUN go get git@github.com:getgrav/grav.git
+
+COPY * /var/www/grav
+
+CMD echo 'This is a test'
+
+
+Expose 80/tcp
+Expose 80/udp
